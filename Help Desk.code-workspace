@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "..\\.."
+		},
+		{
+			"name": "modern-react-login",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
