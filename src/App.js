@@ -1,8 +1,13 @@
-import "./App.css";
-import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
+import React, { useState, useEffect } from "react";
+import { HashLoader} from "react-spinners";
+import styled from "styled-components";
+
+
+
 
 const AppContainer = styled.div`
+
   width: 100%;
   height: 100%;
   display: flex;
@@ -12,11 +17,40 @@ const AppContainer = styled.div`
 `;
 
 function App() {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+
+    }, 3000)
+  }, []);
+
+
   return (
-    <AppContainer>
-      <AccountBox />
-    </AppContainer>
-  );
+    <div className="App">
+      {
+        loading ? (
+
+          <HashLoader
+
+
+            size={50}
+            color={"yellow"}
+            loading={loading}
+
+          />
+        )
+          : (
+            <AppContainer>
+              <AccountBox />
+            </AppContainer >
+          )
+      }
+    </div>)
 }
+
 
 export default App;
