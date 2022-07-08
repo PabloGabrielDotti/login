@@ -4,6 +4,7 @@ import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
+import { PinForm } from "./pinForm";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -122,7 +123,13 @@ export function AccountBox(props) {
     }, 400);
   };
 
-  const contextValue = { switchToSignup, switchToSignin };
+  const switchToPin = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("submit");
+    }, 400);
+  };
+  const contextValue = { switchToSignup, switchToSignin, switchToPin };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -148,8 +155,16 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue!</SmallText>
             </HeaderContainer>
           )}
+          {active === "submit" && (
+            <HeaderContainer>
+              <HeaderText>OnCall</HeaderText>
+              <HeaderText>Practice</HeaderText>
+              <SmallText>Please insert your Pin to continue!</SmallText>
+            </HeaderContainer>
+          )}
         </TopContainer>
         <InnerContainer>
+        {active === "submit" && <PinForm />}
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignupForm />}
         </InnerContainer>

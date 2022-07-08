@@ -10,19 +10,19 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-export function LoginForm(props) {
+export function PinForm(props) {
   const { switchToSignup } = useContext(AccountContext);
-  const { switchToPin } = useContext(AccountContext);
+  
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="User" />
+        <Input type="text" placeholder="Pin" />
         
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Forgot your user?</MutedLink>
+      <MutedLink href="#">Insert your Pin</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" href="#" onClick={switchToPin}>Submit</SubmitButton>
+      <SubmitButton type="submit">Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}
