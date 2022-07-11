@@ -2,7 +2,7 @@
 
 
 body{
-
+background-image: "public/coolHue-FDEB71-F8D800.png";
 }
 
 
@@ -22,4 +22,11 @@ body{
 .Loader p {
  color: white;
  margin-left: 43%;
+ }
+
+ /* Capcha*/
+
+ .imgCapcha {
+  height: 100px;
+  width: 255px;
  }

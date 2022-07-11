@@ -7,6 +7,7 @@ import { SignupForm } from "./signupForm";
 import { PinForm } from "./pinForm";
 import { Capcha } from "./capcha";
 import { TwoFactor } from "./2FA";
+import { PassForm } from "./passwordForm";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -102,7 +103,7 @@ const expandingTransition = {
 
 export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
-  const [active, setActive] = useState("signin");
+  const [active, setActive] = useState("capcha");
 
   const playExpandingAnimation = () => {
     setExpanded(true);
@@ -136,7 +137,7 @@ export function AccountBox(props) {
   const switchToPin = () => {
     playExpandingAnimation();
     setTimeout(() => {
-      setActive("submit");
+      setActive("pin");
     }, 400);
   };
 
@@ -148,7 +149,15 @@ export function AccountBox(props) {
     }, 400);
   };
 
-  const contextValue = { switchToSignup, switchToSignin, switchToPin, switchToCapcha, switchTo2FA };
+  const switchToPassForm = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("Password");
+    }, 400);
+  };
+
+
+  const contextValue = { switchToSignup, switchToSignin, switchToPin, switchToCapcha, switchTo2FA, switchToPassForm };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -160,10 +169,16 @@ export function AccountBox(props) {
             variants={backdropVariants}
             transition={expandingTransition}
           />
-              {active === "capcha" && (
-           <Capcha></Capcha>
+          {active === "capcha" && (
+            <HeaderContainer>
+              <HeaderText>OnCall</HeaderText>
+              <HeaderText>Practice</HeaderText>
+              <SmallText>Please confirm that you are not a robot</SmallText>
+
+            </HeaderContainer>
+
           )}
-         
+
           {active === "signin" && (
             <HeaderContainer>
               <HeaderText>OnCall</HeaderText>
@@ -178,26 +193,35 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue!</SmallText>
             </HeaderContainer>
           )}
-          {active === "submit" && (
+          {active === "pin" && (
             <HeaderContainer>
               <HeaderText>OnCall</HeaderText>
               <HeaderText>Practice</HeaderText>
               <SmallText>Please insert your Pin to continue!</SmallText>
             </HeaderContainer>
           )}
-              {active === "2FA" && (
+          {active === "2FA" && (
             <HeaderContainer>
               <HeaderText>OnCall</HeaderText>
               <HeaderText>Practice</HeaderText>
               <SmallText>Please insert your 2FA to continue!</SmallText>
             </HeaderContainer>
           )}
+          {active === "Password" && (
+            <HeaderContainer>
+              <HeaderText>OnCall</HeaderText>
+              <HeaderText>Practice</HeaderText>
+              <SmallText>Please insert your Password to continue!</SmallText>
+            </HeaderContainer>
+          )}
         </TopContainer>
         <InnerContainer>
-        {active === "capcha" && <Capcha />}
-        {active === "submit" && <PinForm />}
-        {active === "2FA" && <TwoFactor/>}
+          {active === "capcha" && <Capcha />}
+
           {active === "signin" && <LoginForm />}
+          {active === "pin" && <PinForm />}
+          {active === "2FA" && <TwoFactor />}
+          {active === "Password" && <PassForm />}
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>

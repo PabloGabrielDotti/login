@@ -10,19 +10,20 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-export function TwoFactor(props) {
+export function PassForm(props) {
   const { switchToSignup } = useContext(AccountContext);
-  const { switchToPassForm } = useContext(AccountContext);
+
+  
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="2FA" />
+        <Input type="text" placeholder="Password" />
         
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Insert your TWO FACTOR AUTENTICATOR</MutedLink>
+      <MutedLink href="#">Insert your Password</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" onClick={switchToPassForm}>Submit</SubmitButton>
+      <SubmitButton type="submit" >Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}

@@ -7,6 +7,7 @@ import './App.css';
 
 
 
+
 const AppContainer = styled.div`
 
   width: 100%;
@@ -42,10 +43,13 @@ function App() {
             color={"yellow"}
             loading={loading}
 
-          /></div>
+          /></div> 
         )
           : (
+
+
             <AppContainer>
+
               <AccountBox />
             </AppContainer >
           )
