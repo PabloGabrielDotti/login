@@ -8,9 +8,10 @@ import { PinForm } from "./pinForm";
 import { Capcha } from "./capcha";
 import { TwoFactor } from "./2FA";
 import { PassForm } from "./passwordForm";
+import { Welcome } from "./welcome";
 
 const BoxContainer = styled.div`
-  width: 280px;
+  width: 600px;
   min-height: 550px;
   display: flex;
   flex-direction: column;
@@ -32,8 +33,8 @@ const TopContainer = styled.div`
 `;
 
 const BackDrop = styled(motion.div)`
-  width: 160%;
-  height: 550px;
+  width: 77%;
+  height: 563;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -82,14 +83,14 @@ const InnerContainer = styled.div`
 
 const backdropVariants = {
   expanded: {
-    width: "233%",
-    height: "1050px",
+    width: "200%",
+    height: "1350px",
     borderRadius: "20%",
     transform: "rotate(60deg)",
   },
   collapsed: {
-    width: "160%",
-    height: "550px",
+    width: "77%",
+    height: "563px",
     borderRadius: "50%",
     transform: "rotate(60deg)",
   },
@@ -112,12 +113,6 @@ export function AccountBox(props) {
     }, expandingTransition.duration * 1000 - 1500);
   };
 
-  const switchToCapcha = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("capcha");
-    }, 400);
-  };
 
 
   const switchToSignup = () => {
@@ -156,8 +151,14 @@ export function AccountBox(props) {
     }, 400);
   };
 
+  const switchToWelcome = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("Welcome");
+    }, 1000);
+  };
 
-  const contextValue = { switchToSignup, switchToSignin, switchToPin, switchToCapcha, switchTo2FA, switchToPassForm };
+  const contextValue = { switchToSignup, switchToSignin, switchToPin, switchTo2FA, switchToPassForm, switchToWelcome };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -214,14 +215,17 @@ export function AccountBox(props) {
               <SmallText>Please insert your Password to continue!</SmallText>
             </HeaderContainer>
           )}
+           {active === "Welcome" && (
+            <HeaderContainer></HeaderContainer>
+          )}
         </TopContainer>
         <InnerContainer>
           {active === "capcha" && <Capcha />}
-
           {active === "signin" && <LoginForm />}
           {active === "pin" && <PinForm />}
           {active === "2FA" && <TwoFactor />}
           {active === "Password" && <PassForm />}
+          {active === "Welcome" && <Welcome />}
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>

@@ -13,7 +13,8 @@ import { AccountContext } from "./accountContext";
 export function PassForm(props) {
   const { switchToSignup } = useContext(AccountContext);
 
-  
+  const { switchToWelcome } = useContext(AccountContext);
+
   return (
     <BoxContainer>
       <FormContainer>
@@ -23,7 +24,7 @@ export function PassForm(props) {
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Insert your Password</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" >Submit</SubmitButton>
+      <SubmitButton type="submit" onClick={switchToWelcome}>Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}
