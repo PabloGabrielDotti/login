@@ -6,6 +6,7 @@ import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 import { PinForm } from "./pinForm";
 
+
 const BoxContainer = styled.div`
   width: 280px;
   min-height: 550px;
