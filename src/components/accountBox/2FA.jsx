@@ -10,9 +10,8 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-export function PinForm(props) {
+export function TwoFactor(props) {
   const { switchToSignup } = useContext(AccountContext);
-  const { switchTo2FA } = useContext(AccountContext);
   
   return (
     <BoxContainer>
@@ -21,9 +20,9 @@ export function PinForm(props) {
         
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Insert your Pin</MutedLink>
+      <MutedLink href="#">Insert your TWO FACTOR AUTENTICATOR</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" onClick={switchTo2FA}>Submit</SubmitButton>
+      <SubmitButton type="submit" >Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}

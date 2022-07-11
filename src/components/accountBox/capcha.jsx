@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useContext } from "react";
+import {
 
-const Capcha = () => {
+    BoxContainer,
+
+    SubmitButton,
+} from "./common";
+
+import { AccountContext } from "./accountContext";
+
+export function Capcha(props) {
+    const { switchToSignin } = useContext(AccountContext);
+
     return (
-        <div>
-            <h1>HOLA</h1>
-        </div>
-    );
-};
+        <BoxContainer>
 
-export default Capcha;
+
+
+            <SubmitButton type="submit" href="#" onClick={switchToSignin}>Insert capcha</SubmitButton>
+
+
+
+        </BoxContainer>
+    );
+}
