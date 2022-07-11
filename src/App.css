@@ -42,3 +42,19 @@ body{
 }
 
 
+/* Loader */
+
+.Loader {
+  padding-top: 10%;
+ 
+ }
+
+.Loader span {
+ margin-left: 50%;
+
+}
+
+.Loader p {
+ color: white;
+ 
+ }

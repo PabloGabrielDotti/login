@@ -1,8 +1,8 @@
 import { AccountBox } from "./components/accountBox";
 import React, { useState, useEffect } from "react";
-import { HashLoader} from "react-spinners";
+import { HashLoader } from "react-spinners";
 import styled from "styled-components";
-
+import './App.css';
 
 
 
@@ -32,16 +32,16 @@ function App() {
   return (
     <div className="App">
       {
-        loading ? (
-
+        loading ? (<div className="Loader">
+          <p>Eneabling security system</p>
           <HashLoader
 
 
-            size={50}
+            size={100}
             color={"yellow"}
             loading={loading}
 
-          />
+          /></div>
         )
           : (
             <AppContainer>
