@@ -20,16 +20,11 @@ export function TwoFactor(props) {
         
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Insert your TWO FACTOR AUTENTICATOR</MutedLink>
+      <MutedLink href="#">¿Need help?</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
       <SubmitButton type="submit" onClick={switchToPassForm}>Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="#">
-        Don't have an account?{" "}
-        <BoldLink href="#" onClick={switchToSignup}>
-          Signup
-        </BoldLink>
-      </MutedLink>
+    
     </BoxContainer>
   );
 }

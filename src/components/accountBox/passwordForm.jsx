@@ -22,16 +22,11 @@ export function PassForm(props) {
         
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Insert your Password</MutedLink>
+      <MutedLink href="#">Forgot your Password</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
       <SubmitButton type="submit" onClick={switchToWelcome}>Submit</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="#">
-        Don't have an account?{" "}
-        <BoldLink href="#" onClick={switchToSignup}>
-          Signup
-        </BoldLink>
-      </MutedLink>
+     
     </BoxContainer>
   );
 }

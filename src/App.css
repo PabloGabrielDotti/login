@@ -2,7 +2,7 @@
 
 
 body{
-background-image: "public/coolHue-FDEB71-F8D800.png";
+background-color: #f2b111;
 }
 
 
@@ -15,20 +15,20 @@ background-image: "public/coolHue-FDEB71-F8D800.png";
  }
 
 .Loader span {
- margin-left: 50%;
+ margin-left: 49%;
 
 }
 
 .Loader p {
  color: white;
- margin-left: 43%;
+ margin-left: 42%;
  }
 
  /* Capcha*/
 
  .imgCapcha {
   height: 100px;
-  width: 255px;
+  width: 300px;
  }
 
  /* Welcome */
