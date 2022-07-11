@@ -11,7 +11,6 @@ import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
 export function PassForm(props) {
-  const { switchToSignup } = useContext(AccountContext);
 
   const { switchToWelcome } = useContext(AccountContext);
 
