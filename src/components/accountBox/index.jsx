@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
-import { PinForm } from "./pinForm";
-import { Capcha } from "./capcha";
-import { TwoFactor } from "./2FA";
-import { PassForm } from "./passwordForm";
 import { Welcome } from "./welcome";
+import { Capcha } from "./capcha";
 
 const BoxContainer = styled.div`
   width: 600px;
@@ -118,34 +114,9 @@ export function AccountBox(props) {
     }, 400);
   };
 
-  const switchToSignin = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("signin");
-    }, 400);
-  };
-
-  const switchToPin = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("pin");
-    }, 400);
-  };
 
 
-  const switchTo2FA = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("2FA");
-    }, 400);
-  };
 
-  const switchToPassForm = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("Password");
-    }, 400);
-  };
 
   const switchToWelcome = () => {
     playExpandingAnimation();
@@ -154,7 +125,7 @@ export function AccountBox(props) {
     }, 1000);
   };
 
-  const contextValue = { switchToSignup, switchToSignin, switchToPin, switchTo2FA, switchToPassForm, switchToWelcome };
+  const contextValue = { switchToSignup, switchToWelcome };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -176,13 +147,7 @@ export function AccountBox(props) {
 
           )}
 
-          {active === "signin" && (
-            <HeaderContainer>
-              <HeaderText>OnCall</HeaderText>
-              <HeaderText>Practice</HeaderText>
-              <SmallText>Please sign-in to continue!</SmallText>
-            </HeaderContainer>
-          )}
+         
           {active === "signup" && (
             <HeaderContainer>
               <HeaderText>Create</HeaderText>
@@ -190,37 +155,14 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue!</SmallText>
             </HeaderContainer>
           )}
-          {active === "pin" && (
-            <HeaderContainer>
-              <HeaderText>OnCall</HeaderText>
-              <HeaderText>Practice</HeaderText>
-              <SmallText>Please insert your Pin to continue!</SmallText>
-            </HeaderContainer>
-          )}
-          {active === "2FA" && (
-            <HeaderContainer>
-              <HeaderText>OnCall</HeaderText>
-              <HeaderText>Practice</HeaderText>
-              <SmallText>Please insert your 2FA to continue!</SmallText>
-            </HeaderContainer>
-          )}
-          {active === "Password" && (
-            <HeaderContainer>
-              <HeaderText>OnCall</HeaderText>
-              <HeaderText>Practice</HeaderText>
-              <SmallText>Please insert your Password to continue!</SmallText>
-            </HeaderContainer>
-          )}
+        
            {active === "Welcome" && (
             <HeaderContainer></HeaderContainer>
           )}
         </TopContainer>
         <InnerContainer>
           {active === "capcha" && <Capcha />}
-          {active === "signin" && <LoginForm />}
-          {active === "pin" && <PinForm />}
-          {active === "2FA" && <TwoFactor />}
-          {active === "Password" && <PassForm />}
+      
           {active === "Welcome" && <Welcome />}
           {active === "signup" && <SignupForm />}
         </InnerContainer>
