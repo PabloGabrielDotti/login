@@ -19,7 +19,8 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f2b111;
+  /*background-color: hsl(43, 90%, 51%);*/
+background-image: url("./background1.svg")  ;
 
 
   

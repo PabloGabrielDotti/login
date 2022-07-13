@@ -37,11 +37,14 @@ export const Input = styled.input`
   border: 1px solid rgba(200, 200, 200, 0.3);
   padding: 0px 10px;
   border-bottom: 1.4px solid transparent;
+  border-radius: 7px;
   transition: all 200ms ease-in-out;
   font-size: 12px;
+  background: rgba(200, 200, 200, 1);
+  margin-bottom: 10px;
 
   &::placeholder {
-    color: rgba(200, 200, 200, 1);
+    color: grey ;
   }
 
   &:not(:last-of-type) {
@@ -63,7 +66,7 @@ export const SubmitButton = styled.button`
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
-  
+  margin-top: 10px;
   background: rgb(241, 196, 15);
   background: linear-gradient(
     58deg,

@@ -5,6 +5,7 @@ import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 import { Welcome } from "./welcome";
 import { Capcha } from "./capcha";
+import { CreatePin } from "./createPin";
 
 const BoxContainer = styled.div`
   width: 600px;
@@ -115,6 +116,12 @@ export function AccountBox(props) {
   };
 
 
+  const switchToCreatePin = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("createPin");
+    }, 400);
+  };
 
 
 
@@ -122,10 +129,10 @@ export function AccountBox(props) {
     playExpandingAnimation();
     setTimeout(() => {
       setActive("Welcome");
-    }, 1000);
+    }, 400);
   };
 
-  const contextValue = { switchToSignup, switchToWelcome };
+  const contextValue = { switchToSignup, switchToWelcome, switchToCreatePin };
 
   return (
     <AccountContext.Provider value={contextValue}>
@@ -146,8 +153,14 @@ export function AccountBox(props) {
             </HeaderContainer>
 
           )}
+          {active === "createPin" && (
+            <HeaderContainer>
+              <HeaderText>Create</HeaderText>
+              <HeaderText>Account</HeaderText>
+              <SmallText>Please sign-up to continue!</SmallText>
+            </HeaderContainer>
+          )}
 
-         
           {active === "signup" && (
             <HeaderContainer>
               <HeaderText>Create</HeaderText>
@@ -155,16 +168,17 @@ export function AccountBox(props) {
               <SmallText>Please sign-up to continue!</SmallText>
             </HeaderContainer>
           )}
-        
-           {active === "Welcome" && (
+
+          {active === "Welcome" && (
             <HeaderContainer></HeaderContainer>
           )}
         </TopContainer>
         <InnerContainer>
           {active === "capcha" && <Capcha />}
-      
-          {active === "Welcome" && <Welcome />}
           {active === "signup" && <SignupForm />}
+          {active === "createPin" && <CreatePin />}
+          {active === "Welcome" && <Welcome />}
+
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>

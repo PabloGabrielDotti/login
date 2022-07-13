@@ -10,19 +10,17 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-export function SignupForm(props) {
-  const { switchToCreatePin } = useContext(AccountContext);
+export function CreatePin(props) {
+  const { switchToWelcome } = useContext(AccountContext);
 
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="Full Name" />
-        <Input type="email" placeholder="Email" />
-        <Input type="email" placeholder="Confirm Email" />
-        
+        <Input type="password" placeholder="Create PIN" />
+        <Input type="password" placeholder="Confirm PIN" />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit" onClick={switchToCreatePin}>Signup</SubmitButton>
+      <SubmitButton type="submit" onClick={switchToWelcome}>Create</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       
     </BoxContainer>

@@ -39,7 +39,7 @@ function App() {
           <HashLoader
 
 
-            size={100}
+            size={120}
             color={"yellow"}
             loading={loading}
 
