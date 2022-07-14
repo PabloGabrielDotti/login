@@ -1,12 +1,3 @@
-
-
-
-body{
-
-}
-
-
-
 /* Loader */
 
 .Loader {
@@ -15,11 +6,74 @@ body{
  }
 
 .Loader span {
- margin-left: 50%;
+ margin-left: 48%;
 
 }
 
 .Loader p {
- color: white;
- margin-left: 43%;
+ color: black;
+font-size: larger;
+ margin-left: 40%;
  }
+
+ /* Capcha*/
+
+ .imgCapcha {
+  height: 100px;
+  width: 300px;
+ }
+
+ /* Welcome */
+
+ .title-word {
+  animation: color-animation 4s linear infinite;
+}
+
+.title-word-1 {
+  --color-1: #DF8453;
+  --color-2: #3D8DAE;
+  --color-3: #E4A9A8;
+}
+
+.title-word-2 {
+  --color-1: #DBAD4A;
+  --color-2: #ACCFCB;
+  --color-3: #17494D;
+}
+
+.title-word-3 {
+  --color-1: #ACCFCB;
+  --color-2: #E4A9A8;
+  --color-3: #ACCFCB;
+}
+
+.title-word-4 {
+  --color-1: #3D8DAE;
+  --color-2: #DF8453;
+  --color-3: #E4A9A8;
+}
+
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+}
+
+/* Here are just some visual styles. 🖌 */
+
+.container {
+ 
+  place-items: center;  
+  text-align: center;
+  
+}
+
+/* Email Verification */
+
+#message {
+  display: none;
+}

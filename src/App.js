@@ -7,6 +7,7 @@ import './App.css';
 
 
 
+
 const AppContainer = styled.div`
 
   width: 100%;
@@ -14,7 +15,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 `;
 
 function App() {
@@ -38,14 +39,17 @@ function App() {
           <HashLoader
 
 
-            size={100}
+            size={120}
             color={"yellow"}
             loading={loading}
 
-          /></div>
+          /></div> 
         )
           : (
+
+
             <AppContainer>
+
               <AccountBox />
             </AppContainer >
           )
