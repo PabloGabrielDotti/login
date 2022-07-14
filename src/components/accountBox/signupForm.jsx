@@ -17,6 +17,7 @@ import { useState } from "react";
 
 
 
+
 export function SignupForm(props) {
   const { switchToCreatePin } = useContext(AccountContext);
   const [emailError, setEmailError] = useState('');
@@ -31,7 +32,7 @@ export function SignupForm(props) {
       setUserError(null);
       return true
     } else {
-      setUserError('Enter valid name!');
+      setUserError('Enter valid name');
       return false
     }
   };
@@ -45,7 +46,7 @@ export function SignupForm(props) {
       setEmailError(null)
       return true
     } else {
-      setEmailError('Enter valid Email!')
+      setEmailError('Enter valid Email')
       return false
     }
   };
@@ -55,7 +56,7 @@ export function SignupForm(props) {
       setcheckEmailError(null)
       return true
     } else {
-      setcheckEmailError("Enter valid Email!")
+      setcheckEmailError("Enter valid Email")
       return false
     }
   };
@@ -74,28 +75,15 @@ export function SignupForm(props) {
     <BoxContainer>
       <FormContainer>
         <Input type="text" placeholder="Full Name" id="userName" onChange={validateName} />
-        <span style={{
-          fontWeight: 'lighter',
-          color: 'red',
-        }}>{checkUserError}</span>
+       <span className= "span">{checkUserError}</span>
         <Input type="email" placeholder="Email" id="userEmail" onChange={(e) => validateEmail(e)} />
-        <span style={{
-          fontWeight: 'lighter',
-          color: 'red',
-        }}>{emailError}</span>
+        <span className= "span">{emailError}</span>
         <Input type="email" placeholder="Confirm Email" id="checkUserEmail" onChange={(e) => checkUserEmail(e)} />
-        <span style={{
-          fontWeight: 'lighter',
-          color: 'red',
-        }}>{checkEmailError}</span>
+        <span className= "span">{checkEmailError}</span>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <SubmitButton type="submit" onClick={validate}>Signup</SubmitButton>
-      <span style={{
-        fontWeight: 'lighter',
-
-        color: 'red',
-      }}>{checkData}</span>
+      <span className= "spanLast">{checkData}</span>
       <Marginer direction="vertical" margin="1em" />
 
     </BoxContainer >
