@@ -22,34 +22,50 @@ export function SignupForm(props) {
   const [emailError, setEmailError] = useState('');
   const [checkEmailError, setcheckEmailError] = useState('');
   const [checkUserError, setUserError] = useState('');
+  const [checkData, setcheckData] = useState('');
 
-  const validateName = (e) => {
-
-    var letters = (/^[A-Za-z]+$/);
-    if ((e.target.value).match(letters)) {
-      setUserError(null)
+  const validateName = () => {
+    var name = document.getElementById("userName").value
+    var letters = (/^[A-Za-z][A-Za-z ]{7,29}$/);
+    if (name.match(letters)) {
+      setUserError(null);
+      return true
     } else {
-      setUserError('Enter valid name!')
+      setUserError('Enter valid name!');
+      return false
     }
   };
 
 
 
   const validateEmail = (e) => {
-    var email = e.target.value
+    var email = document.getElementById("userEmail").value
     console.log(email)
     if (validator.isEmail(email)) {
       setEmailError(null)
+      return true
     } else {
       setEmailError('Enter valid Email!')
+      return false
     }
   };
 
   const checkUserEmail = (e) => {
-    if (document.getElementById("userEmail").value === e.target.value) {
+    if (document.getElementById("userEmail").value === document.getElementById("checkUserEmail").value) {
       setcheckEmailError(null)
+      return true
     } else {
       setcheckEmailError("Enter valid Email!")
+      return false
+    }
+  };
+
+  const validate = (e) => {
+
+    if (validateName() === true && validateEmail() === true && checkUserEmail() === true) {
+      switchToCreatePin();
+    } else {
+      setcheckData("Check Data")
     }
   };
 
@@ -57,28 +73,29 @@ export function SignupForm(props) {
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="Full Name" id="userName" onChange={(e) => validateName(e)} />
+        <Input type="text" placeholder="Full Name" id="userName" onChange={validateName} />
         <span style={{
           fontWeight: 'lighter',
-
           color: 'red',
         }}>{checkUserError}</span>
         <Input type="email" placeholder="Email" id="userEmail" onChange={(e) => validateEmail(e)} />
-
         <span style={{
           fontWeight: 'lighter',
-
           color: 'red',
         }}>{emailError}</span>
         <Input type="email" placeholder="Confirm Email" id="checkUserEmail" onChange={(e) => checkUserEmail(e)} />
         <span style={{
           fontWeight: 'lighter',
-
           color: 'red',
         }}>{checkEmailError}</span>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit" onClick={switchToCreatePin}>Signup</SubmitButton>
+      <SubmitButton type="submit" onClick={validate}>Signup</SubmitButton>
+      <span style={{
+        fontWeight: 'lighter',
+
+        color: 'red',
+      }}>{checkData}</span>
       <Marginer direction="vertical" margin="1em" />
 
     </BoxContainer >
