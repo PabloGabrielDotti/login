@@ -21,6 +21,19 @@ export function SignupForm(props) {
   const { switchToCreatePin } = useContext(AccountContext);
   const [emailError, setEmailError] = useState('');
   const [checkEmailError, setcheckEmailError] = useState('');
+  const [checkUserError, setUserError] = useState('');
+
+  const validateName = (e) => {
+
+    var letters = (/^[A-Za-z]+$/);
+    if ((e.target.value).match(letters)) {
+      setUserError(null)
+    } else {
+      setUserError('Enter valid name!')
+    }
+  };
+
+
 
   const validateEmail = (e) => {
     var email = e.target.value
@@ -38,13 +51,18 @@ export function SignupForm(props) {
     } else {
       setcheckEmailError("Enter valid Email!")
     }
-  }
+  };
 
 
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="Full Name" />
+        <Input type="text" placeholder="Full Name" id="userName" onChange={(e) => validateName(e)} />
+        <span style={{
+          fontWeight: 'lighter',
+
+          color: 'red',
+        }}>{checkUserError}</span>
         <Input type="email" placeholder="Email" id="userEmail" onChange={(e) => validateEmail(e)} />
 
         <span style={{
@@ -63,6 +81,6 @@ export function SignupForm(props) {
       <SubmitButton type="submit" onClick={switchToCreatePin}>Signup</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
 
-    </BoxContainer>
+    </BoxContainer >
   );
 }
