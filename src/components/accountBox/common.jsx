@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const BoxContainer = styled.div`
   width: 100%;
   display: flex;
@@ -41,7 +43,8 @@ export const Input = styled.input`
   transition: all 200ms ease-in-out;
   font-size: 12px;
   background: #ecebeb;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+ 
 
   &::placeholder {
     color: grey ;
@@ -55,7 +58,12 @@ export const Input = styled.input`
     outline: none;
     border-bottom: 2px solid rgb(241, 196, 15);
   }
-`;
+  
+`
+  ;
+
+
+
 
 export const SubmitButton = styled.button`
   width: 100%;
