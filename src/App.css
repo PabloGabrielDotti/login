@@ -86,3 +86,26 @@ font-size: larger;
   font-size: 13px;
   padding-top: 10px;
 }
+
+/* Info sign */
+
+
+.addMore{
+  border: none;
+  width: 32px;
+  height: 32px;
+  background-color: #eee;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  display: inline;
+  margin: 5px 0px 0px 5px;
+  color: grey;
+}
+.addMore:hover{
+  border: 1px solid #888;
+  background-color: #ddd;
+}
+
+.displayinfo {
+  display: inline-flex ;
+}

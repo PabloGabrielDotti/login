@@ -4,7 +4,6 @@ import {
   BoxContainer,
   FormContainer,
   Input,
-
   SubmitButton,
 } from "./common";
 import { Marginer } from "../marginer";
@@ -24,6 +23,7 @@ export function SignupForm(props) {
   const [checkEmailError, setcheckEmailError] = useState('');
   const [checkUserError, setUserError] = useState('');
   const [checkData, setcheckData] = useState('');
+
 
   const validateName = () => {
     var name = document.getElementById("userName").value
@@ -74,7 +74,10 @@ export function SignupForm(props) {
   return (
     <BoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="Full Name" id="userName" onChange={validateName} />
+       
+          <Input type="text" placeholder="Full Name" id="userName" onChange={validateName} /> 
+
+       
         <span className="span">{checkUserError}</span>
         <Input type="email" placeholder="Email" id="userEmail" onChange={(e) => validateEmail(e)} />
         <span className="span">{emailError}</span>
