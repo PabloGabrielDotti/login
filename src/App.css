@@ -2,30 +2,30 @@
 
 .Loader {
   padding-top: 10%;
- 
- }
+
+}
 
 .Loader span {
- margin-left: 48%;
+  margin-left: 48%;
 
 }
 
 .Loader p {
- color: black;
-font-size: larger;
- margin-left: 40%;
- }
+  color: black;
+  font-size: larger;
+  margin-left: 40%;
+}
 
- /* Capcha*/
+/* Capcha*/
 
- .imgCapcha {
+.imgCapcha {
   height: 100px;
   width: 300px;
- }
+}
 
- /* Welcome */
+/* Welcome */
 
- .title-word {
+.title-word {
   animation: color-animation 4s linear infinite;
 }
 
@@ -54,34 +54,54 @@ font-size: larger;
 }
 
 @keyframes color-animation {
-  0%    {color: var(--color-1)}
-  32%   {color: var(--color-1)}
-  33%   {color: var(--color-2)}
-  65%   {color: var(--color-2)}
-  66%   {color: var(--color-3)}
-  99%   {color: var(--color-3)}
-  100%  {color: var(--color-1)}
+  0% {
+    color: var(--color-1)
+  }
+
+  32% {
+    color: var(--color-1)
+  }
+
+  33% {
+    color: var(--color-2)
+  }
+
+  65% {
+    color: var(--color-2)
+  }
+
+  66% {
+    color: var(--color-3)
+  }
+
+  99% {
+    color: var(--color-3)
+  }
+
+  100% {
+    color: var(--color-1)
+  }
 }
 
 /* Here are just some visual styles. 🖌 */
 
 .container {
- 
-  place-items: center;  
+
+  place-items: center;
   text-align: center;
-  
+
 }
 
 /* Error menssages */
 
-.span{
+.span {
   color: red;
   font-size: 11px;
   margin-left: 10px;
   margin-top: 0px;
 }
 
-.spanLast{
+.spanLast {
   color: red;
   font-size: 13px;
   padding-top: 10px;
@@ -90,7 +110,7 @@ font-size: larger;
 /* Info sign */
 
 
-.addMore{
+.addMore {
   border: none;
   width: 32px;
   height: 32px;
@@ -99,13 +119,19 @@ font-size: larger;
   cursor: pointer;
   display: inline;
   margin: 5px 0px 0px 5px;
+  text-align: center;
+  padding-top: 2px;
   color: grey;
 }
-.addMore:hover{
+
+.addMore:hover {
   border: 1px solid #888;
   background-color: #ddd;
 }
 
 .displayinfo {
-  display: inline-flex ;
+  display: inline-flex;
 }
+
+
+

@@ -54,8 +54,8 @@ export function CreatePin(props) {
     <BoxContainer>
       <FormContainer>
         <div className="displayinfo">
-          <Input type="password" placeholder="Create PIN" id="userPin" onChange={validatePin} /> <button class="addMore" title="
-Your PIN must be of five characters and must include at least one uppercase letter, at least one lowercase letter, and at least one number. ">?</button>
+          <Input type="password" placeholder="Create PIN" id="userPin" onChange={validatePin} /> <div class="addMore" title="
+Your PIN must be of five characters and must include at least one uppercase letter, at least one lowercase letter, and at least one number. ">?</div>
         </div>
         <span className="span">{pinError}</span>
         <Input type="password" placeholder="Confirm PIN" id="checkPin" onChange={checkPin} />
