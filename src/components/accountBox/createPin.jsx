@@ -30,18 +30,18 @@ export function CreatePin(props) {
     }
   };*/
 
-  
+
 
 
 
   function validatePassword() {
 
     const pin = document.getElementById("userPin").value
-                
+
     // Do not show anything when the length of password is zero.
     if (pin.length === 0) {
-        document.getElementById("msg").innerHTML = "";
-        return;
+      document.getElementById("msg").innerHTML = "";
+      return;
     }
     // Create an array and push all possible values that you want in password
     var matchedCase = new Array();
@@ -53,49 +53,52 @@ export function CreatePin(props) {
     // Check the conditions
     var ctr = 0;
     for (var i = 0; i < matchedCase.length; i++) {
-        if (new RegExp(matchedCase[i]).test(pin)) {
-            ctr++;
-        }
+      if (new RegExp(matchedCase[i]).test(pin)) {
+        ctr++;
+      }
     }
 
-    
+
 
 
     // Display it
     var color = "";
     var strength = "";
     switch (ctr) {
-        case 0:
-        case 1:
-        case 2:
-            strength = "Very Weak";
-            color = "red";
-            break;
-        case 3:
-            strength = "Medium";
-            color = "orange";
-            break;
-        case 4:
-            strength = "Strong";
-            color = "green";
-            break;
+      case 0:
+      case 1:
+      case 2:
+        strength = "Very Weak";
+        color = "red";
+        break;
+      case 3:
+        strength = "Medium";
+        color = "orange";
+        break;
+      case 4:
+        strength = "Strong";
+        color = "green";
+        break;
     }
 
     if (pin.length < 5) {
-        document.getElementById("msg").innerHTML = "Less than five";
-        return;
+      document.getElementById("msg").innerHTML = "Less than five characters";
+      return;
+    } else if (pin.length > 5){
+      document.getElementById("msg").innerHTML = "More than five characters";
+      return;
     }
-    
+
     document.getElementById("msg").innerHTML = strength;
     document.getElementById("msg").style.color = color;
 
-    if(strength == "Very Weak" || strength =="Medium"){
-        return false
+    if (strength == "Very Weak" || strength == "Medium") {
+      return false
     } else {
-       return true
+      return true
     }
 
-}
+  }
 
   const checkPin = (e) => {
     if (document.getElementById("userPin").value === document.getElementById("checkPin").value) {
@@ -121,10 +124,10 @@ export function CreatePin(props) {
     <BoxContainer>
       <FormContainer>
         <div className="displayinfo">
-          <Input type="password" placeholder="Create PIN" id="userPin" onKeyUp={validatePassword} /> <button class="addMore" title="
-Your PIN must be of five characters and must include at least one uppercase letter, at least one lowercase letter, and at least one number. ">?</button>
+          <Input type="password" placeholder="Create PIN" id="userPin" onKeyUp={validatePassword} /> <div class="addMore" title="
+Your PIN must be five characters long and must include at least one uppercase letter, at least one lowercase letter, at least one number, and at least one special character">?</div>
         </div>
-        <span  className= "span" id="msg"></span>
+        <span className="span" id="msg"></span>
         <Input type="password" placeholder="Confirm PIN" id="checkPin" onChange={checkPin} />
         <span className="span">{checkPinError}</span>
       </FormContainer>
