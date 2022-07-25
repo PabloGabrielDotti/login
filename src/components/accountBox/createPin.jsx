@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export function CreatePin(props) {
   const { switchToWelcome } = useContext(AccountContext);
-  const [pinError, setPinError] = useState('');
+
   const [checkPinError, setcheckPinError] = useState('');
   const [checkData, setcheckData] = useState('');
 
@@ -79,7 +79,7 @@ export function CreatePin(props) {
         strength = "Strong";
         color = "green";
         break;
-    }
+    };
 
     if (pin.length < 5) {
       document.getElementById("msg").innerHTML = "Less than five characters";
@@ -92,7 +92,7 @@ export function CreatePin(props) {
     document.getElementById("msg").innerHTML = strength;
     document.getElementById("msg").style.color = color;
 
-    if (strength == "Very Weak" || strength == "Medium") {
+    if (strength === "Very Weak" || strength === "Medium") {
       return false
     } else {
       return true
